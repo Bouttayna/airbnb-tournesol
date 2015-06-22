@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622161232) do
+ActiveRecord::Schema.define(version: 20150622155416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,14 +46,6 @@ ActiveRecord::Schema.define(version: 20150622161232) do
 
   add_index "flats", ["user_id"], name: "index_flats_on_user_id", using: :btree
 
-  create_table "picture_bases", force: :cascade do |t|
-    t.integer  "flat_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "picture_bases", ["flat_id"], name: "index_picture_bases_on_flat_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -77,5 +69,4 @@ ActiveRecord::Schema.define(version: 20150622161232) do
   add_foreign_key "bookings", "flats"
   add_foreign_key "bookings", "users"
   add_foreign_key "flats", "users"
-  add_foreign_key "picture_bases", "flats"
 end
