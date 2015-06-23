@@ -1,6 +1,32 @@
 <h1>Details of your account</h1>
 
-<span><%= "e-mail :" %></span> <%= @user.email %>
+<h3>About you</h3>
+  <% if  @user.provider %>
+    <ul>
+      <li><%= "Name :" %> <%= @user.name %></li>
+      <li> <%= "Description :" %> <%= @user.description %></li>
+      <li><%= "E-mail :" %> <%= @user.email %></li>
+      </ul>
+    </ul>
+
+  <% else %>
+    <ul>
+        <li><%= "Name :" %> <%= @user.name %></li>
+        <li> <%= "Description :" %> <%= @user.description %></li>
+        <li><%= "E-mail :" %> <%= @user.email %></li>
+      </ul>
+    </ul>
+  <% end %>
 
 <%= link_to "Edit profile", edit_account_path %>
+
+<h3>Renting to </h3>
+
+
+<%= link_to "Ajouter une annonce", new_flat_path %>
+
+<h3>Renting from </h3>
+
+
+
 
