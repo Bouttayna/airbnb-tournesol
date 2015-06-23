@@ -4,6 +4,7 @@
   <div class="row row-centered">
       <div class="col-xs-6 col-xs-offset-3">
         <% @flats.each do |flat| %>
+        <%= image_tag flat.picture.url(:medium) %>
         <h2> Title : <%= flat.title %></h2>
         <h3> Description : <%= flat.description %></h3>
         <p> Address : <%= flat.address %></p>

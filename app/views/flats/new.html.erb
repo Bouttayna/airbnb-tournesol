@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
-      <%= simple_form_for @flat do |f| %>
+      <%= simple_form_for @flat , html: { multipart: true } do |f| %>
 
         <%= f.input :title %>
         <%= f.input :description %>
@@ -11,6 +11,8 @@
         <%= f.input :availability %>
         <%= f.input :capacity %>
         <%= f.input :price %>
+        <%= f.label :picture %>
+        <%= f.file_field :picture %>
 
         <%= f.button :submit, class: "btn-primary" %>
       <% end %>

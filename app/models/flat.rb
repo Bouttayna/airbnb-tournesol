@@ -1,5 +1,5 @@
 class Flat < ActiveRecord::Base
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   belongs_to :user
 
   validates :title, presence:true
@@ -9,5 +9,10 @@ class Flat < ActiveRecord::Base
   validates :capacity, presence:true
   validates :price, presence:true
 
+  has_attached_file :picture,
+     styles: { medium: "300x300>", thumb: "100x100>" }
+
+   validates_attachment_content_type :picture,
+     content_type: /\Aimage\/.*\z/
 end
 

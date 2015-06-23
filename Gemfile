@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
 # Figaro to protect API keys
 gem 'figaro'
 #handling corrections
