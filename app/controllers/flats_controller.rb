@@ -1,5 +1,6 @@
 class FlatsController < ApplicationController
-  before_action :find_flat only: []
+  before_action :find_flat, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @flats = Flat.all
@@ -9,18 +10,26 @@ class FlatsController < ApplicationController
 
   end
 
-  def create
+  def new
+    @flat = Flat.new
   end
 
-  def new
+  def create
+    @flat = current_user.flats.build(flat_params)
+
+    if @flat.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
-
   end
 
   def update
-
+    @flat.update(flat_params)
+    redirect_to root_path
   end
 
   def destroy
@@ -30,7 +39,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :address, :city, :availabity, :capacity, :price)
+    params.require(:flat).permit(:title, :description, :address, :city, :availabity, :capacity, :price, :user_id)
   end
 
   def find_flat
