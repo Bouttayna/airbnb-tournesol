@@ -4,6 +4,7 @@
   <div class="row row-centered">
     <div class="col-xs-6 col-xs-offset-3">
       <h2><%= @flat.title %></h2>
+      <%= image_tag @flat.picture.url(:medium) %>
       <p><%= @flat.description %></p>
       <p><%= @flat.address %></p>
       <p><%= @flat.city %></p>
