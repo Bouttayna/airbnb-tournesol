@@ -1,5 +1,6 @@
 class FlatsController < ApplicationController
-  before_action :find_flat, only: [:edit, :update]
+
+  before_action :find_flat, only: [:edit, :update, :show, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -7,7 +8,6 @@ class FlatsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -33,7 +33,8 @@ class FlatsController < ApplicationController
   end
 
   def destroy
-
+    @flat.destroy
+    redirect_to flats_path
   end
 
   private

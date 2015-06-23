@@ -1,7 +1,21 @@
-  <h2><%= flat.title %></h2>
-  <p><%= flat.description %></p>
-  <p><%= flat.address %></p>
-  <p><%= flat.city %></p>
-  <p><%= flat.availability %></p>
-  <p><%= flat.capacity %></p>
-  <p><%= flat.price %></p>
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h2><%= @flat.title %></h2>
+      <p><%= @flat.description %></p>
+      <p><%= @flat.address %></p>
+      <p><%= @flat.city %></p>
+      <p><%= @flat.availability %></p>
+      <p><%= @flat.capacity %></p>
+      <p><%= @flat.price %></p>
+
+      <%= link_to "Delete", flat_path(@flat),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
+    </div>
+  </div>
+</div>
+
+
+

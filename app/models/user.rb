@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauth_providers => [ :facebook ]
 
+  has_many :bookings
+  has_many :flats
+
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -16,8 +19,4 @@ class User < ActiveRecord::Base
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
   end
-
-
-  has_many :bookings
-  has_many :flats
 end
