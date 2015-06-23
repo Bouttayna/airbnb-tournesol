@@ -1,12 +1,11 @@
 class FlatsController < ApplicationController
-  before_action :find_flat only: []
+  before_action :find_flat, only: [:show, :destroy]
 
   def index
     @flats = Flat.all
   end
 
   def show
-
   end
 
   def create
@@ -24,13 +23,14 @@ class FlatsController < ApplicationController
   end
 
   def destroy
-
+    @flat.destroy
+    redirect_to flats_path
   end
 
   private
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :address, :city, :availabity, :capacity, :price)
+    params.require(:flat).permit(:title, :description, :address, :city, :availabity, :capacity, :price, :user_id)
   end
 
   def find_flat

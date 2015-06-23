@@ -1,11 +1,17 @@
-<% @flats.each do |flat| %>
-  <h2><%= flat.title %></h2>
-  <p><%= flat.description %></p>
-  <p><%= flat.address %></p>
-  <p><%= flat.city %></p>
-  <p><%= flat.availability %></p>
-  <p><%= flat.capacity %></p>
-  <p><%= flat.price %></p>
+<div class="container">
+  <div class="row row-centered">
+      <div class="col-xs-6 col-xs-offset-3">
+        <% @flats.each do |flat| %>
+        <h2> Title : <%= flat.title %></h2>
+        <h3> Description : <%= flat.description %></h3>
+        <p> Address : <%= flat.address %></p>
+        <p> City : <%= flat.city %></p>
+        <p> Availability : <%= flat.availability %></p>
+        <p> Capacity : <%= flat.capacity %></p>
+        <p> Price : <%= flat.price %></p>
+        <% end %>
+      </div>
+  </div>
+</div>
 
-<% end %>
 
