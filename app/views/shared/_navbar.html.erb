@@ -24,8 +24,13 @@
           </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
-              Profile <span class="caret"></span>
+              <% if user_signed_in? %>
+
+                <%= image_tag current_user.picture, class: "img-avatar" %>
+              <% else %>
+                <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
+                Profile <span class="caret"></span>
+              <% end %>
             <% end %>
             <ul class="dropdown-menu" role="menu">
               <li>
@@ -51,6 +56,9 @@
           </li>
           <li>
             <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
           </li>
         <% end %>
         <li>
