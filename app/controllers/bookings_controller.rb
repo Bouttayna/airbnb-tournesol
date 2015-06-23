@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @bookings = Booking.all
   end
 
   def show
@@ -32,6 +33,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking.destroy
+    redirect_to :back
   end
 
   private

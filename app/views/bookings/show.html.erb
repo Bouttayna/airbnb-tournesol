@@ -1,2 +1,21 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h1>Voici la réservation : </h1>
+
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h2><%= @booking.title %></h2>
+      <p><%= @booking.state %></p>
+      <p><%= @booking.number_of_travellers %></p>
+      <p><%= @booking.arrival %></p>
+      <p><%= @booking.departure %></p>
+
+      <%= link_to "Delete", flat_booking_path(@flat),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
+    </div>
+  </div>
+</div>
+
+
+
