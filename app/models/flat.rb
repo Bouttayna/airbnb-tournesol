@@ -8,5 +8,6 @@ class Flat < ActiveRecord::Base
   validates :city, presence:true
   validates :capacity, presence:true
   validates :price, presence:true
+
 end
 
