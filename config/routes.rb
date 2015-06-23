@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
+  resource :account, only: [:show, :edit, :update]
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
