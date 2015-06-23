@@ -1,11 +1,18 @@
 source 'https://rubygems.org'
 
+# Figaro to protect API keys
+gem 'figaro'
+#handling corrections
 gem 'better_errors'
 gem 'binding_of_caller'
+#Style
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
+# Handling sign in / out
 gem 'devise'
+#Facebook connect
+gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
