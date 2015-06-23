@@ -1,2 +1,17 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1> Booker <%=@flat.title %> </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <%= simple_form_for [@flat, @booking] do |f| %>
+
+        <%= f.input :title %>
+        <%= f.hidden_field :user_id, :value => current_user.id%>
+        <%= f.input :arrival %>
+        <%= f.input :departure %>
+        <%= f.input :number_of_travellers %>
+
+        <%= f.button :submit, class: "btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
 
   before_action :find_booking, only: [:edit, :update, :show, :destroy]
+  before_action :find_flat, only: [:create, :new, :edit]
   before_action :authenticate_user!
 
   def index
@@ -10,15 +11,24 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @booking = @flat.bookings.build(set_booking)
+    if @booking.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def new
+    @booking = Booking.new
   end
 
   def edit
   end
 
   def update
+    @booking.update(set_booking)
+    redirect_to root_path
   end
 
   def destroy
