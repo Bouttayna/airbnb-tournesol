@@ -1,2 +1,16 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<h1> Editer mon voyage </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <%= simple_form_for [@flat, @booking] do |f| %>
+
+        <%= f.input :title %>
+        <%= f.input :arrival %>
+        <%= f.input :departure %>
+        <%= f.input :number_of_travellers %>
+
+        <%= f.button :submit, class: "btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
