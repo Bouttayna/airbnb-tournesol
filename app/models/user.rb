@@ -17,4 +17,7 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  has_many :bookings
+  has_many :flats
 end
