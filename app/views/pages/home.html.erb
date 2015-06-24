@@ -1,4 +1,49 @@
-<h1>Welcome to Air bnb </h1>
+  <div id="banner" class="window-height text-center">
+    <div class="slideDown">
+      <h1>Welcome Air bills and bills </h1>
+        <div class="btn-margin">
+          <%= link_to "Come take a  tour", "#", class: "btn-lg btn-danger" %>
+        </div>
+        <br>
+
+        <div>
+         <%= form_tag(flats_path, method: "get") do %>
+         <%= text_field_tag(:city, nil, placeholder: 'Où voulez-vous aller ?') %>
+         <%= date_field_tag(:arrival) %>
+         <%= date_field_tag(:departure) %>
+         <%= number_field_tag(:capacity, nil, in: 1..10) %>
+
+         <%= submit_tag("Rechercher", class: "btn btn-success") %>
+        </div>
+
+        <% end %>
+    </div>
+  </div>
+
+  <div id="features" class="window-height">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-3" data-sr="wait 0.5s">
+          <div>
+              <%= image_tag "house2.jpg", {class: "img-circle"}%>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-3" data-sr="wait 0.3s">
+          <div>
+            <%= image_tag "house1.jpg", {class: "img-circle"}%>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-3" data-sr="wait 0.8s">
+          <div>
+            <%= image_tag "house3.jpg", {class: "img-circle"}%>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
 
 
-<%= link_to 'Créer un appartement', new_flat_path %>
