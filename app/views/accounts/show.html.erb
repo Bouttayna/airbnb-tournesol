@@ -1,9 +1,13 @@
 <div id="profile_user">
 
   <h2>Welcome back <%= @user.name %> </h2>
+   <%= image_tag current_user.avatar.url(:medium), id:"thumb_profile", class:"img-circle", id:"me"  %>
   <div class="container">
+
     <div class="row"></div>
-      <div id="profile_infos" class='col-xs-4'>
+
+      <div id="profile_infos" class='col-xs-4 col-xs-offset-4'>
+
         <h3>About you</h3>
           <% if  @user.provider %>
             <ul>
