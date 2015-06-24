@@ -5,6 +5,14 @@ class FlatsController < ApplicationController
 
   def index
     @flats = Flat.all
+
+    if params[:city].present?
+     @flats = @flats.where(city: params[:city])
+    end
+
+    if params[:capacity].present?
+         @flats = @flats.where(city: params[:city]).where(capacity: params[:capacity])
+    end
   end
 
   def show
