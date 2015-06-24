@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(set_booking)
-    redirect_to root_path
+    redirect_to account_path
   end
 
   def destroy

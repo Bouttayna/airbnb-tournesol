@@ -6,4 +6,6 @@ class Booking < ActiveRecord::Base
   validates :arrival, presence:true
   validates :departure, presence:true
   validates :number_of_travellers, presence:true
+  validates_inclusion_of :state, in: ["Pending", "Accepted", "Rejected"]
 end
+

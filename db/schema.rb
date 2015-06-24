@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623141930) do
+ActiveRecord::Schema.define(version: 20150624123301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.string   "title"
-    t.string   "state"
+    t.string   "state",                default: "Pending"
     t.integer  "user_id"
     t.integer  "flat_id"
     t.date     "arrival"
     t.date     "departure"
     t.integer  "number_of_travellers"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "bookings", ["flat_id"], name: "index_bookings_on_flat_id", using: :btree
@@ -36,12 +36,12 @@ ActiveRecord::Schema.define(version: 20150623141930) do
     t.text     "description"
     t.string   "address"
     t.string   "city"
-    t.boolean  "availability"
+    t.boolean  "availability",         default: false
     t.integer  "capacity"
     t.integer  "price"
     t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -70,6 +70,10 @@ ActiveRecord::Schema.define(version: 20150623141930) do
     t.string   "picture"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
