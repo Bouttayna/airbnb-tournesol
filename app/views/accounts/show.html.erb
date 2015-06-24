@@ -20,13 +20,26 @@
 
 <%= link_to "Edit profile", edit_account_path %>
 
-<h3>Renting to </h3>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#myreservations">My reservations</a>
+      <div id="myreservations">
+        <ul>
+          <% current_user.bookings.each do |booking| %>
+            <li><%= booking.title %></li>
+            <% end %>
+       </ul>
+      </div>
 
 
-<%= link_to "Ajouter une annonce", new_flat_path %>
 
-<h3>Renting from </h3>
+    </li>
+    <li><a href="#myapartments">My apartments</a>
+      <div id="myapartments">
+      <%= link_to "Ajouter une annonce", new_flat_path %>
+      </div>
+    </li>
 
-
+</ul>
 
 
