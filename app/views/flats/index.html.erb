@@ -1,20 +1,33 @@
-<h1>Voici la liste des appartements</h1>
+<div id="page_index_flat">
+  <%= link_to "Retour", :back %>
+  <h1>Voici la liste des appartements</h1>
+  <div class='flat_presentation'>
 
-<div class="container">
-  <div class="row row-centered">
-      <div class="col-xs-6 col-xs-offset-3">
-        <% @flats.each do |flat| %>
-        <%= image_tag flat.picture.url(:medium) %>
-        <h2> Title : <%= flat.title %></h2>
-        <h3> Description : <%= flat.description %></h3>
-        <p> Address : <%= flat.address %></p>
-        <p> City : <%= flat.city %></p>
-        <p> Availability : <%= flat.availability %></p>
-        <p> Capacity : <%= flat.capacity %></p>
-        <p> Price : <%= flat.price %></p>
-        <% end %>
-      </div>
+      <% @flats.each do |flat| %>
+         <div class="row ">
+          <div class="col-xs-4 text-center">
+            <%= image_tag flat.picture.url(:medium), class:'flat_picture' %>
+          </div>
+          <div class="col-xs-4  text-center">
+            <div class="box_decoration">
+              <h4><%= flat.title %></h4>
+              <p> <strong>Description :</strong> <%= flat.description %></p>
+            </div>
+          </div>
+          <div class="col-xs-4 text-center ">
+            <div class="box_decoration">
+              <p> <strong>Address :<col-xs-offset-1 /strong>  <%= flat.address %></p>
+              <p> <strong>City :</strong>  <%= flat.city %></p>
+              <p> <strong>Availability :</strong> <%= flat.availability %></p>
+              <p> <strong>Capacity :</strong>  <%= flat.capacity %>  <i class="fa fa-users"></i>
+              </p>
+              <p> <strong>Price :</strong>  <%= flat.price %> <i class="fa fa-eur"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
   </div>
 </div>
-
 
