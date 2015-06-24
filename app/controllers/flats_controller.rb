@@ -19,7 +19,7 @@ class FlatsController < ApplicationController
     @flat = current_user.flats.build(flat_params)
 
     if @flat.save
-      redirect_to root_path
+      redirect_to account_path
     else
       render :new
     end
@@ -30,7 +30,7 @@ class FlatsController < ApplicationController
 
   def update
     @flat.update(flat_params)
-    redirect_to root_path
+    redirect_to account_path
   end
 
   def destroy
@@ -41,7 +41,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :address, :city, :availabity, :capacity, :price, :user_id, :picture)
+    params.require(:flat).permit(:title, :description, :address, :city, :availability, :capacity, :price, :user_id, :picture)
   end
 
   def find_flat

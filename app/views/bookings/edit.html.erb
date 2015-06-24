@@ -1,16 +1,36 @@
-<h1> Editer mon voyage </h1>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <%= simple_form_for [@flat, @booking] do |f| %>
+<% if current_user.id == @flat.user.id %>
+  <%= link_to "Retour", :back %><i class="fa fa-arrow-left"></i>
+  <h1> Voulez-vous accepter cette réservation ? </h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <%= simple_form_for [@flat, @booking] do |f| %>
 
-        <%= f.input :title %>
-        <%= f.input :arrival %>
-        <%= f.input :departure %>
-        <%= f.input :number_of_travellers %>
+          <%= f.select :state, ["Accepted", "Rejected"] %>
 
-        <%= f.button :submit, class: "btn-primary" %>
-      <% end %>
+
+          <%= f.button :submit, class: "btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+
+<% else %>
+  <i class="fa fa-arrow-left"></i>
+  <h1> Editer mon voyage </h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <%= simple_form_for [@flat, @booking] do |f| %>
+
+          <%= f.input :title %>
+          <%= f.input :arrival %>
+          <%= f.input :departure %>
+          <%= f.input :number_of_travellers %>
+
+          <%= f.button :submit, class: "btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
