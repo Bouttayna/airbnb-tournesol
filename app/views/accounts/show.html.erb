@@ -1,32 +1,28 @@
 <div id="profile_user">
-
-  <h2>Welcome back <%= @user.name %> </h2>
-   <%= image_tag current_user.avatar.url(:medium), id:"thumb_profile", class:"img-circle", id:"me"  %>
+  <h2>Welcome back <%= @user.name %>
+  </h2>
   <div class="container">
-
-    <div class="row"></div>
-
-      <div id="profile_infos" class='col-xs-4 col-xs-offset-4'>
-
+    <div class="row">
+      <div class='col-xs-12 col-md-6 col-lg-4'>
+        <%= image_tag current_user.avatar.url(:medium), id:"thumb_profile", class:"img-circle"  %>
+      </div>
+      <div id="profile_infos" class='col-xs-12 col-md-6 col-lg-4 '>
         <h3>About you</h3>
-          <% if  @user.provider %>
-            <ul>
+        <% if  @user.provider %>
+          <ul>
+            <li><%= "Name :" %> <%= @user.name %></li>
+            <li> <%= "Description :" %> <%= @user.description %></li>
+            <li><%= "E-mail :" %> <%= @user.email %></li>
+          </ul>
+        <% else %>
+          <ul>
               <li><%= "Name :" %> <%= @user.name %></li>
               <li> <%= "Description :" %> <%= @user.description %></li>
               <li><%= "E-mail :" %> <%= @user.email %></li>
-              </ul>
-            </ul>
-
-          <% else %>
-            <ul>
-                <li><%= "Name :" %> <%= @user.name %></li>
-                <li> <%= "Description :" %> <%= @user.description %></li>
-                <li><%= "E-mail :" %> <%= @user.email %></li>
-              </ul>
-            </ul>
-          <% end %>
-
+          </ul>
+        <% end %>
         <%= link_to "Edit profile", edit_account_path, class:"btn btn-primary"%>
+      </div>
     </div>
   </div>
 
@@ -97,7 +93,7 @@
                   </ul>
                 </div>
 
-                <div class="col-xs-3 col-xs-offset-1 text-left">
+                <div class="col-xs-6 col-xs-offset-1 text-left">
                   <br>
                   <strong>Title </strong> <%= flat.title %>
                   <br>
@@ -106,8 +102,10 @@
                   <br>
                   <br>
                     <% if flat.bookings.present? %>
-                    <h4>Mes locataires : </h4>
+                    <h4 id="link_locataires">See rentals  </h4>
+                    <%= image_tag "close_icon.png", id:"close_icon" %>
 
+                  <div id="locataires_details">
 
                   <ul>
                      <% flat.bookings.each do |booking| %>
@@ -127,7 +125,9 @@
                     </li>
                     <% end %>
                   </ul>
+                </div>
                 <% end %>
+
                 </div>
                 <div class="col-xs-3">
 
@@ -146,4 +146,3 @@
 
       </div>
 </div>
-

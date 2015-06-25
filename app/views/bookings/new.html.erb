@@ -1,18 +1,30 @@
-<h1> Booker <%=@flat.title %> </h1>
-<%= link_to "Retour", :back %>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <%= simple_form_for [@flat, @booking] do |f| %>
+<div class='body_fullscreen'>
+  <div class='window-height'>
+    <% if current_user.id == @flat.user.id %>
+      <%= link_to "Retour", :back %>
+      <h4 class="text-center"> Vous ne pouvez pas louer votre appartement.</h4>
+      <div class='text-center'>
+        <%= link_to 'Retourner dans mon profil', account_path%>
+      </div>
+    <% else %>
+      <h1> Booker <%=@flat.title %> </h1>
+      <%= link_to "Retour", :back %>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= simple_form_for [@flat, @booking] do |f| %>
 
-        <%= f.input :title %>
-        <%= f.hidden_field :user_id, :value => current_user.id%>
-        <%= f.input :arrival %>
-        <%= f.input :departure %>
-        <%= f.input :number_of_travellers %>
+              <%= f.input :title %>
+              <%= f.hidden_field :user_id, :value => current_user.id%>
+              <%= f.input :arrival %>
+              <%= f.input :departure %>
+              <%= f.input :number_of_travellers %>
 
-        <%= f.button :submit, class: "btn-primary" %>
-      <% end %>
-    </div>
+              <%= f.button :submit, class: "btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <%end %>
   </div>
 </div>
