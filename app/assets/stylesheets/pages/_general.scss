@@ -1,0 +1,19 @@
+ #myModal {
+    background-color: rgba(0,0,0,0.5);
+    h3 {
+      text-align: center;
+      color: white;
+      margin-top: 50px;
+    }
+    p {
+      text-align: center;
+      color: white;
+      margin-top: 25px;
+    }
+    #input_validate {
+      display: block;
+      margin: 0 auto;
+      margin-top: 25px;
+      position: relative;
+    }
+  }
