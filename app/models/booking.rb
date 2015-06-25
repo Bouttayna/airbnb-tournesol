@@ -7,5 +7,15 @@ class Booking < ActiveRecord::Base
   validates :departure, presence:true
   validates :number_of_travellers, presence:true
   validates_inclusion_of :state, in: ["Pending", "Accepted", "Rejected"]
+
+  # validate :locator_cant_be_proprio
+
+  # private
+
+  # def locator_cant_be_proprio
+  #    if @current_user.id == @flat.user_id.id
+  #      errors.add(:user_id, "you can't book your own flat ! :O")
+  #    end
+  #  end
 end
 

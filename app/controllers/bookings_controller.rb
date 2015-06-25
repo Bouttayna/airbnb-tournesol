@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
   def create
     @booking = @flat.bookings.build(set_booking)
     if @booking.save
-      redirect_to flat_path(@flat)
+      redirect_to account_path
     else
       render :new
     end

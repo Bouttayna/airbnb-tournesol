@@ -1,4 +1,4 @@
   $(document).ready(function() {
-   $(".first-section").css("height", $(window).height());
+    $(".first-section").css("height", $(window).height());
   });
 
