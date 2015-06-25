@@ -64,7 +64,15 @@
                       <%= link_to 'Supprimer mon voyage', flat_booking_path(booking.flat, booking), method: :delete, data: { confirm: "Are you sure?" } %>
                     </div>
                     <div class="col-xs-2">
-                      <%= booking.state %>
+                      State :
+                      <br>
+                      <% if booking.state == "Pending"%>
+                        <strong><p style="color:orange"><%= booking.state %></p></strong>
+                      <% elsif booking.state == "Accepted" %>
+                        <strong><p style="color:green"><%= booking.state %></p></strong>
+                      <% else %>
+                        <strong><p style="color:red"><%= booking.state %></p></strong>
+                      <% end %>
                     </div>
                   </div>
                 </div>

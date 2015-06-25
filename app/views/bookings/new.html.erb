@@ -20,8 +20,15 @@
               <%= f.input :departure %>
               <%= f.input :number_of_travellers %>
 
-              <%= f.button :submit, class: "btn-primary" %>
-            <% end %>
+                <button class=" btn btn-primary" type="button" data-toggle="modal" data-target="#myModal" id="myInput">Validate my book</button>
+                <div class="modal fade" id="myModal">
+                  <div class="modal-body">
+                    <h3> You're going to create a new reservation. Do you want to validate ?</h3>
+                    <p> You're booking details will be available in your personal profile.
+                    <%= f.button :submit, class: "btn-primary", id:"input_validate" %>
+              <% end %>
+                  </div>
+                </div><!-- /.modal-dialog -->
           </div>
         </div>
       </div>
