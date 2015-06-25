@@ -1,4 +1,7 @@
 <div id="profile_user">
+  <% current_user.bookings.each do |booking|%>
+    <% booking.notifications = 0 %>
+  <% end %>
   <h2>Welcome back <%= @user.name %>
   </h2>
   <div class="container">
