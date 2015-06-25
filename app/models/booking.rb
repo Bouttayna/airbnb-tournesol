@@ -8,6 +8,7 @@ class Booking < ActiveRecord::Base
   validates :number_of_travellers, presence:true
   validates_inclusion_of :state, in: ["Pending", "Accepted", "Rejected"]
 
+  after_create :send_email
   # validate :locator_cant_be_proprio
 
   # private
@@ -17,5 +18,12 @@ class Booking < ActiveRecord::Base
   #      errors.add(:user_id, "you can't book your own flat ! :O")
   #    end
   #  end
+
+  private
+
+  def send_email
+    UserMailer.booking_user_confirmation(self).deliver_now
+    UserMailer.booking_owner_confirmation(self).deliver_now
+  end
 end
 

@@ -17,5 +17,7 @@ class Flat < ActiveRecord::Base
 
    validates_attachment_content_type :picture,
      content_type: /\Aimage\/.*\z/
+
+
 end
 
