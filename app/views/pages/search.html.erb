@@ -1,0 +1,18 @@
+
+<div class='text-center'>
+   <div id="thumbnail">
+     <%= image_tag 'Pascal_Grasso_hqroom_ru_2.jpg', :class => "image" %>
+
+  </div>
+  <h3> Your research here </h3>
+  <br>
+  <div class="form-inline text-black">
+    <%= form_tag(flats_path, method: "get") do %>
+    <%= text_field(:city, nil, placeholder: 'Où voulez-vous aller ?',class: 'form-control') %>
+    <%= number_field_tag(:capacity, nil, placeholder: '2', in: 1..10, class: 'form-control') %>
+    <br>
+    <br>
+    <%= submit_tag("Search", class: "btn btn-primary") %>
+    <% end %>
+  </div>
+</div>

@@ -3,7 +3,7 @@
       <h1>Welcome Home !</h1>
       <br>
         <div class="btn-margin">
-          <%= link_to "Come take a  tour", flats_path, class: "btn-lg btn-danger" %>
+          <%= link_to "View all flats", flats_path, class: "btn-lg btn-danger" %>
         </div>
         <br>
         <br>
@@ -11,11 +11,9 @@
         <div class="form-inline text-black">
          <%= form_tag(flats_path, method: "get") do %>
          <%= text_field(:city, nil, placeholder: 'Où voulez-vous aller ?',class: 'form-control') %>
-         <%= date_field_tag(:arrival, placeholder: 'Arrival', class: 'form-control') %>
-         <%= date_field_tag(:departure, placeholder: 'Departure', class: 'form-control') %>
          <%= number_field_tag(:capacity, nil, placeholder: '2', in: 1..10, class: 'form-control') %>
 
-         <%= submit_tag("Rechercher", class: "btn btn-danger") %>
+         <%= submit_tag("Search", class: "btn btn-danger") %>
         </div>
 
         <% end %>
