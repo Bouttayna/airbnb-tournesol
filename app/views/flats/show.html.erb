@@ -46,12 +46,31 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
 
+          <div id="map" style='width: 95%; height: 300px;' class="table table-bordered margin_top_ten"></div>
+
+           <% content_for(:after_js) do %>
+             <script type="text/javascript">
+              $(document).on('ready', function() {
+                handler = Gmaps.build('Google');
+                handler.buildMap({ internal: { id: 'map' } }, function(){
+                  markers = handler.addMarkers(<%=raw @flat_coordinates.to_json %>);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                });
+              })
+            </script>
+            <%end%>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
           <br>
-          <h2> Make a reservation </h2>
           <% if current_user.id == @flat.user.id %>
+          <h2> Make a reservation </h2>
             <h4 class="text-center"> Vous ne pouvez pas louer votre appartement.</h4>
             <div class='text-center'>
               <%= link_to 'Retourner dans mon profil', account_path%>
@@ -80,25 +99,5 @@
         </div>
       </div>
     </div>
-
-
-
-    <div id="map" style='width: 50%; height: 670px;'></div>
-
-     <% content_for(:after_js) do %>
-       <script type="text/javascript">
-        $(document).on('ready', function() {
-          handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function(){
-            markers = handler.addMarkers(<%=raw @flat_coordinates.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-          });
-        })
-      </script>
-      <%end%>
-    </div>
   </div>
 </div>
-
-
