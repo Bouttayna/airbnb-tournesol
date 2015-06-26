@@ -40,22 +40,24 @@
 
         <div  class="col-xs-2 ">
           <div id="details">
-            <p>Address: <%= @flat.address %></p>
-            <p>City: <%= @flat.city %></p>
-            <p>Availability: <%= @flat.availability %></p>
-            <h5>Capacity: <%= @flat.capacity %> <i class="fa fa-users"></i></h5>
-            <h5>Price: <%= @flat.price %> <i class="fa fa-eur"></i></h5>
+            <p><strong>Address:</strong><br> <%= @flat.address %></p>
+            <p><strong>City:</strong><br> <%= @flat.city %></p>
+            <p><strong>Available ?:</strong></br> <% if @flat.availability %>
+              Yes<% else %> No <%end%></p>
           </div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
+          <br>
           <h2> Make a reservation </h2>
           <% if current_user.id == @flat.user.id %>
             <h4 class="text-center"> Vous ne pouvez pas louer votre appartement.</h4>
             <div class='text-center'>
               <%= link_to 'Retourner dans mon profil', account_path%>
+              <br>
+              <br>
             </div>
           <%else%>
             <%= simple_form_for [@flat, @booking] do |f| %>

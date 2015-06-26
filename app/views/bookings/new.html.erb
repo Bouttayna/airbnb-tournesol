@@ -6,7 +6,14 @@
       <div class='text-center'>
         <%= link_to 'Retourner dans mon profil', account_path%>
       </div>
+    <% elsif @flat.availability == false %>
+      <%= link_to "Retour", :back %>
+      <h4 class="text-center"> Désolé, cet appartement n'est pas disponible à la location :(.</h4>
+      <div class='text-center'>
+        <%= link_to 'Retourner dans mon profil', account_path%>
+      </div>
     <% else %>
+
       <h1> Booker <%=@flat.title %> </h1>
       <%= link_to "Retour", :back %>
       <div class="container">

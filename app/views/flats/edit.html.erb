@@ -12,6 +12,8 @@
         <%= f.input :availability %>
         <%= f.input :capacity %>
         <%= f.input :price %>
+        <%= f.label :picture %>
+        <%= f.file_field :picture %>
 
         <%= f.button :submit, class: "btn-primary" %>
       <% end %>
