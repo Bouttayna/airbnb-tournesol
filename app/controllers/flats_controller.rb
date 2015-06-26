@@ -5,7 +5,6 @@ class FlatsController < ApplicationController
 
   def index
     @flats = Flat.all
-
     if params[:city].present?
      @flats = @flats.where(city: params[:city])
     end
@@ -16,6 +15,8 @@ class FlatsController < ApplicationController
   end
 
   def show
+    @flat = Flat.find(params[:id])
+    @flat_coordinates = [{ lat: @flat.latitude, lng: @flat.longitude }]
     @booking = Booking.new
   end
 

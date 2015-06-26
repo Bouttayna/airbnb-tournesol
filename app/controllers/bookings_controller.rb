@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    params.require(:booking).permit(:state, :user_id, :flat_id, :arrival, :departure, :number_of_travellers)
+    params.require(:booking).permit(:title, :user, :state, :user_id, :flat_id, :arrival, :departure, :number_of_travellers)
   end
 
   def find_flat
