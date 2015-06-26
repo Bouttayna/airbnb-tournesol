@@ -1,14 +1,13 @@
   <div id="banner" class="window-height text-center">
-    <div class="slideDown">
+    <div id="animate-home">
+      <br><br>
       <h1>Welcome Home !</h1>
       <br>
         <div class="btn-margin">
           <%= link_to "View all flats", flats_path, class: "btn-lg btn-danger" %>
         </div>
-        <br>
-        <br>
 
-        <div class="form-inline text-black">
+        <div class="form-inline text-black text-center" id="search_home">
          <%= form_tag(flats_path, method: "get") do %>
          <%= text_field(:city, nil, placeholder: 'Où voulez-vous aller ?',class: 'form-control') %>
          <%= number_field_tag(:capacity, nil, placeholder: '2', in: 1..10, class: 'form-control') %>
@@ -20,33 +19,5 @@
     </div>
   </div>
 
-  <div id="features" class="window-height text-center padded">
-
-    <div class="container">
-      <div class="row">
-
-        <div class="col-xs-12 col-sm-12 col-md-4" data-sr="wait 0.5s">
-          <div>
-              <%= image_tag "picture1.jpg", {class: "img-circle"}%>
-                <div> <h3> <strong> PARIS</strong></h3></div>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-4" data-sr="wait 0.3s">
-          <div>
-            <%= image_tag "picture2.jpg", {class: "img-circle"}%>
-              <div> <h3> <strong> NEW YORK</strong></h3></div>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-4" data-sr="wait 0.8s">
-          <div>
-            <%= image_tag "picture3.jpg", {class: "img-circle"}%>
-               <div> <h3> <strong> ROME</strong></h3></div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
 
 
