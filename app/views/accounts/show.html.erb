@@ -106,7 +106,8 @@
                   <strong>Title </strong> <%= flat.title %>
                   <br>
                   <strong>Available ? </strong><% if flat.availability%> Yes <% else %> No <%end%> <br>
-                  <%= link_to "Edit appartment", edit_flat_path(flat) %>
+                  <%= link_to "Edit apartment |", edit_flat_path(flat) %>
+                  <%= link_to " Delete this apartment", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" } %>
                   <br>
                   <br>
                     <% if flat.bookings.present? %>

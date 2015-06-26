@@ -44,7 +44,7 @@ class FlatsController < ApplicationController
 
   def destroy
     @flat.destroy
-    redirect_to flats_path
+    redirect_to account_path
   end
 
   private
