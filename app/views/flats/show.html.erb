@@ -71,7 +71,7 @@
         <div class="col-xs-8 col-xs-offset-2">
           <br>
           <% if current_user.id == @flat.user.id %>
-          <h2> Make a reservation </h2>
+
             <h4 class="text-center"> Vous ne pouvez pas louer votre appartement.</h4>
             <div class='text-center'>
               <%= link_to 'Retourner dans mon profil', account_path%>
@@ -79,6 +79,7 @@
               <br>
             </div>
           <%else%>
+            <h2> Make a reservation </h2>
             <%= simple_form_for [@flat, @booking] do |f| %>
 
               <%= f.input :title %>

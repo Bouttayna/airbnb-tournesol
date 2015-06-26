@@ -1,35 +1,38 @@
 <% if current_user.id == @flat.user.id %>
   <%= link_to "Retour", :back %>
-  <h1> Voulez-vous accepter cette réservation ? </h1>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <%= simple_form_for [@flat, @booking] do |f| %>
+  <div class='center_view_devise text-center'>
+    <h3> Voulez-vous accepter cette réservation ? </h3>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+          <%= simple_form_for [@flat, @booking] do |f| %>
 
-          <%= f.select :state, ["Accepted", "Rejected"] %>
+            <%= f.select :state, ["Accepted", "Rejected"] %>
 
 
-          <%= f.button :submit, class: "btn-primary" %>
-        <% end %>
+            <%= f.button :submit, class: "btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<% else %>
-  <i class="fa fa-arrow-left"></i>
-  <h1> Editer mon voyage </h1>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <%= simple_form_for [@flat, @booking] do |f| %>
+  <% else %>
+    <i class="fa fa-arrow-left"></i>
+    <h1> Editer mon voyage </h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+          <%= simple_form_for [@flat, @booking] do |f| %>
 
-          <%= f.input :title %>
-          <%= f.input :arrival %>
-          <%= f.input :departure %>
-          <%= f.input :number_of_travellers %>
+            <%= f.input :title %>
+            <%= f.input :arrival %>
+            <%= f.input :departure %>
+            <%= f.input :number_of_travellers %>
 
-          <%= f.button :submit, class: "btn-primary" %>
-        <% end %>
+            <%= f.button :submit, class: "btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
