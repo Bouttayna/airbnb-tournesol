@@ -1,14 +1,20 @@
 #banner{
-  background: image-url('background.jpg');
+  background: image-url('scandinav3.jpg');
   background-size: cover;
+  background-position: bottom;
   padding: 240px;
-  color: white;
+  color: black;
   padding: 150px;
   padding-top: 100px;
   height: 650px;
+
   p {
   font-size:25px;
   font-weight: 100;
+  }
+  h1 {
+    font-size: 65px;
+    margin-top: 0;
   }
 }
 
@@ -54,6 +60,11 @@ color:#736C6C;
 
 .form-inputs {
   margin-top: 30px;
+}
+
+#search_home {
+
+  margin-top: 25%;
 }
 
 

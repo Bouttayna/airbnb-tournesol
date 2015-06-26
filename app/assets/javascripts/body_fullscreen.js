@@ -1,6 +1,6 @@
-  // $(document).ready(function() {
-  //   if ($('body').hasClass('.body_fullscreen')) {
-  //     $('.window-height').css("height", $(window).height() );
-  //   }
-  // });
+  $(document).ready(function() {
+
+    $('#banner').css("height", $(window).height() );
+
+ });
 
