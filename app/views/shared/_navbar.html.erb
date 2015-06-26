@@ -26,7 +26,16 @@
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
               <% if user_signed_in? %>
 
+                <% number_notif = 0 %>
+                <% current_user.bookings.each do |booking| %>
+                  <% number_notif += booking.notifications %>
+                <%end %>
                 <%= image_tag current_user.avatar.url(), class: "img-avatar" %>
+                <% if number_notif > 0 %>
+                  <%= number_notif %>
+                <% end %>
+
+
               <% else %>
                 <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
                 Profile <span class="caret"></span>
