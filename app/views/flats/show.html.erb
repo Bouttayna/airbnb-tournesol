@@ -1,62 +1,87 @@
 <div id="show">
-   <%= link_to "Retour", :back %>
-  <h1><%= @flat.title %></h1>
+   <%= link_to "Retour", :back, id:"back_link" %>
 
-  <div class="container">
-    <div class="row">
-       <%= image_tag @flat.picture, :class => "image col-xs-8 col-xs-offset-2" %>
-    </div>
-    <div class="row row-centered">
 
-      <div class="col-xs-6 col-xs-offset-2">
-        <div id="description">
+  <div id="thumbnail">
+     <%= image_tag @flat.picture, :class => "image" %>
 
-          <h5>Description</h5>
-          <p><%= @flat.description %></p>
-        </div>
+  </div>
+  <div class="flat_content">
+    <div id="presentation_flat">
+      <div class="details text-center">
+        <%= image_tag @flat.user.avatar, :class => "image img-circle", id:"proprio" %>
       </div>
-
-
-      <div  class="col-xs-2 ">
-        <div id="details">
-          <p>Address: <%= @flat.address %></p>
-          <p>City: <%= @flat.city %></p>
-          <p>Availability: <%= @flat.availability %></p>
-          <h5>Capacity: <%= @flat.capacity %> <i class="fa fa-users"></i></h5>
-          <h5>Price: <%= @flat.price %> <i class="fa fa-eur"></i></h5>
-        </div>
+      <div class="details text-center">
+        <i class="fa fa-users"></i>
+        <%= @flat.capacity %>
+      </div>
+      <div class="details text-center">
+        <i class="fa fa-eur"></i>
+        <%= @flat.price %>
+      </div>
+      <div class="details text-center">
+        <i class="fa fa-building-o"></i>
+        <%= @flat.city %>
       </div>
     </div>
+    <div class="container">
 
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <h2> Make a reservation </h2>
-        <% if current_user.id == @flat.user.id %>
-          <h4 class="text-center"> Vous ne pouvez pas louer votre appartement.</h4>
-          <div class='text-center'>
-            <%= link_to 'Retourner dans mon profil', account_path%>
+
+      <div class="row row-centered">
+
+        <div class="col-xs-6 col-xs-offset-2">
+          <div id="description">
+
+            <h5>Description</h5>
+            <p><%= @flat.description %></p>
           </div>
-        <%else%>
-          <%= simple_form_for [@flat, @booking] do |f| %>
+        </div>
 
-            <%= f.input :title %>
-            <%= f.hidden_field :user_id, :value => current_user.id%>
-            <%= f.input :arrival %>
-            <%= f.input :departure %>
-            <%= f.input :number_of_travellers %>
 
-            <button class=" btn btn-primary" type="button" data-toggle="modal" data-target="#myModal" id="myInput">Validate my book</button>
-            <div class="modal fade" id="myModal">
-              <div class="modal-body">
-                <h3> You're going to create a new reservation. Do you want to validate ?</h3>
-                <p> You're booking details will be available in your personal profile.
-                <%= f.button :submit, class: "btn-primary", id:"input_validate" %>
+        <div  class="col-xs-2 ">
+          <div id="details">
+            <p>Address: <%= @flat.address %></p>
+            <p>City: <%= @flat.city %></p>
+            <p>Availability: <%= @flat.availability %></p>
+            <h5>Capacity: <%= @flat.capacity %> <i class="fa fa-users"></i></h5>
+            <h5>Price: <%= @flat.price %> <i class="fa fa-eur"></i></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+          <h2> Make a reservation </h2>
+          <% if current_user.id == @flat.user.id %>
+            <h4 class="text-center"> Vous ne pouvez pas louer votre appartement.</h4>
+            <div class='text-center'>
+              <%= link_to 'Retourner dans mon profil', account_path%>
+            </div>
+          <%else%>
+            <%= simple_form_for [@flat, @booking] do |f| %>
+
+              <%= f.input :title %>
+              <%= f.hidden_field :user_id, :value => current_user.id%>
+              <%= f.input :arrival %>
+              <%= f.input :departure %>
+              <%= f.input :number_of_travellers %>
+
+              <button class=" btn btn-primary" type="button" data-toggle="modal" data-target="#myModal" id="myInput">Validate my book</button>
+              <div class="modal fade" id="myModal">
+                <div class="modal-body">
+                  <h3> You're going to create a new reservation. Do you want to validate ?</h3>
+                  <p> You're booking details will be available in your personal profile.
+                  <%= f.button :submit, class: "btn-primary", id:"input_validate" %>
+            <% end %>
+                </div>
+              </div><!-- /.modal-dialog -->
           <% end %>
-              </div>
-            </div><!-- /.modal-dialog -->
-        <% end %>
+        </div>
       </div>
     </div>
+
+
+
       <div id="map" style='width: 100%; height: 670px;'></div>
 
           <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>

@@ -1,33 +1,85 @@
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+
 
 #show {
-  .image {
-    // width: 500px;
-    // height: 500px;
+  position: relative;
+
+  #presentation_flat {
+    background-color: white;
+    display : table;
+    width: 100%;
+    div {
+      display : table-cell;
+      vertical-align: middle;
+    }
+
+    #proprio {
+
+    }
   }
+
+  .container {
+    // margin-left: 0 !important;
+    // margin-right: 0 !important;
+
+  }
+
+  .flat_content{
+
+    top: 0;
+  }
+
+  h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  }
+  #thumbnail {
+    width: 100%;
+    position: absolute;
+    z-index: -20;
+    top: 0;
+
+    .image {
+      width: 100%;
+      object-fit: cover;
+    }
+
+  }
+
   #details {
     background-color: white;
     border: 1px solid;
     border-radius: 5px;
     padding: 20px 20px;
-    margin-top: 30px;
+    -moz-box-shadow: 1px 1px 2px 0px #656565;
+    -webkit-box-shadow: 1px 1px 2px 0px #656565;
+    -o-box-shadow: 1px 1px 2px 0px #656565;
+    box-shadow: 1px 1px 2px 0px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=2);
+    margin-left: 15px;
+    margin-right: 15px;
 
   }
   #description{
-    margin-top: 30px;
     margin-left: 25px;
     background-color: white;
     border: 1px solid;
+    border-color: black;
     border-radius: 5px;
     padding: 20px 20px;
+    -moz-box-shadow: 1px 1px 2px 0px #656565;
+    -webkit-box-shadow: 1px 1px 2px 0px #656565;
+    -o-box-shadow: 1px 1px 2px 0px #656565;
+    box-shadow: 1px 1px 2px 0px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=2);
+    margin-left: 15px;
+    margin-right: 15px;
   }
   h2 {
     margin-top: 25px;
     margin-bottom: 25px;
     text-align: center;
   }
+
+
 
 }
